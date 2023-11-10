@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="app">
+      <div>
+        <h2><router-link to="/">Vue Router Example</router-link></h2>
+        <div>
+          <router-link to="/user/posts">User Posts</router-link>
+          <router-link to="/user/profile">User Profile</router-link>
+        </div>
+      </div>
+
+      <router-view></router-view>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.2/dist/vue.js"></script>
+    <script src="https://unpkg.com/vue-router@3.0.1/dist/vue-router.js"></script>
+    <script>
+      var User = {
+        template: `
+         <div>
+            User Component
+            <router-view></router-view>
+         </div>
+         `,
+      };
+      var Home = { template: "<div>welcome</div>" };
+      var Main = { template: "<div>main</div>" };
+      var Login = { template: "<div>login</div>" };
+      var UserPost = { template: "<p>UserPost</p>" };
+      var UserProfile = { template: "<p>UserProfile</p>" };
+
+      var routes = [
+        { path: "/", component: Home },
+        { path: "/main", component: Main },
+        { path: "/login", component: Login },
+        {
+          path: "/user",
+          component: User,
+          children: [
+            { path: "posts", component: UserPost },
+            { path: "profile", component: UserProfile },
+          ],
+        },
+      ];
+
+      var router = new VueRouter({
+        mode: "history", // url해시태그 없애기
+        routes,
+      });
+
+      var app = new Vue({
+        router,
+      }).$mount("#app");
+    </script>
+  </body>
+</html>
