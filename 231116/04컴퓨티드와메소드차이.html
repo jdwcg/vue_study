@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <!-- 컴퓨티드 -->
+    <!-- <div id="app">
+      <p>{{reversedMsg }}</p>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.2/dist/vue.js"></script>
+    <script>
+      new Vue({
+        el: "#app",
+        data: {
+          msg: "Hello Vue.js!",
+        },
+        computed: {
+          reversedMsg: function () {
+            return this.msg.split("").reverse().join("");
+          },
+        },
+      });
+    </script> -->
+
+    <!-- 메소드 -->
+    <div id="app">
+      <p>{{msg }}</p>
+      <button v-on:click="reversedMsg">문자열 역순</button>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.2/dist/vue.js"></script>
+    <script>
+      new Vue({
+        el: "#app",
+        data: {
+          msg: "Hello Vue.js!",
+        },
+        methods: {
+          reversedMsg: function () {
+            this.msg = this.msg.split("").reverse().join("");
+            return this.msg;
+          },
+        },
+      });
+    </script>
+  </body>
+</html>
