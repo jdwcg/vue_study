@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <title></title>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.2/dist/vue.js"></script>
+  </head>
+  <body>
+    <div id="app">
+      <h1>{{ bFlag }}</h1>
+      <p v-if="bFlag == true">앞면</p>
+      <p v-else="">뒷면</p>
+    </div>
+    <script>
+      var app = new Vue({
+        el: "#app",
+        data: {
+          bFlag: Math.random() > 0.5,
+        },
+      });
+    </script>
+  </body>
+</html>

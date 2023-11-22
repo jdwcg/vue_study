@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <title></title>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.2/dist/vue.js"></script>
+  </head>
+  <body>
+    <div id="app">
+      <h1>{{ sTitle }}</h1>
+      <button v-on:click="fnChangeTitle">눌러주세요.</button>
+    </div>
+    <script>
+      new Vue({
+        el: "#app",
+        data: {
+          sTitle: "hello",
+        },
+        methods: {
+          fnChangeTitle() {
+            this.sTitle = "안녕하세요.";
+          },
+        },
+      });
+    </script>
+  </body>
+</html>

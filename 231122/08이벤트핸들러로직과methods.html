@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <title></title>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.2/dist/vue.js"></script>
+  </head>
+  <body>
+    <div id="main">
+      <p>click Number: {{ nClicks }}</p>
+      <p>count Number: {{ fnCounter }}</p>
+      <button v-on:click="fnIncrement">click</button>
+    </div>
+    <script>
+      new Vue({
+        el: "#main",
+        data: {
+          nClicks: 0,
+        },
+        computed: {
+          fnCounter() {
+            return 10 - this.nClicks;
+          },
+        },
+        methods: {
+          fnIncrement() {
+            this.nClicks++;
+          },
+        },
+      });
+      //computed쓰는경우
+      // 머시태시가 복잡할때 or 계산량이 많아 캐시가 필요할 때
+    </script>
+  </body>
+</html>
